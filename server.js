@@ -5,8 +5,12 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
+const connectDB = require("./utils/connectDB");
+const { errorHandler } = require("./middlewares/errorHandler");
+const authRoute = require("./routes/auth.route");
 
 const app = express();
+connectDB();
 
 app.use(morgan("dev"));
 app.use(
@@ -18,6 +22,11 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Routes
+app.use("/api/auth", authRoute);
+
+app.use(errorHandler);
 
 PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {

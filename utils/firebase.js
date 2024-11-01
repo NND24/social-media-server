@@ -2,13 +2,13 @@ const { initializeApp } = require("firebase/app");
 const multer = require("multer");
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDepkwoOOewPiAs2KR3F-e-5mdT7bFnnfk",
-  authDomain: "social-media-3a38c.firebaseapp.com",
-  projectId: "social-media-3a38c",
-  storageBucket: "social-media-3a38c.appspot.com",
-  messagingSenderId: "425470280912",
-  appId: "1:425470280912:web:e6aaff25f8885d7c694ad5",
-  measurementId: "G-YTQ0LYH7Y9",
+  apiKey: process.env.FIREBASE_APIKEY,
+  authDomain: process.env.FIREBASE_AUTHDOMAIN,
+  projectId: process.env.FIREBASE_PROJECTID,
+  storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
+  appId: process.env.FIREBASE_APPID,
+  measurementId: process.env.FIREBASE_MEASUREMENTID,
 };
 
 const app = initializeApp(firebaseConfig);
